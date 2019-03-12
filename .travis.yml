@@ -45,9 +45,9 @@ script:
 
 addons:
   sonarcloud:
-    organization: "projectname" # der key der organisation auf sonarcloud.io
+    organization: "einzelabgaberie" # der key der organisation auf sonarcloud.io
     token:
-      secure: $SONAR_TOKEN       # $SONAR_TOKEN -> Umgebungsvariable auf travis-ci.org
+      secure: $enviromenttravis     # $SONAR_TOKEN -> Umgebungsvariable auf travis-ci.org
 
 # benachrichtigungen per email ausschalten
 notifications:
