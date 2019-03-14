@@ -38,10 +38,11 @@
         android:id="@+id/btnSend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginTop="39dp"
-        android:layout_marginEnd="162dp"
-        android:layout_marginBottom="361dp"
+        android:layout_marginStart="151dp"
+        android:layout_marginTop="145dp"
+        android:layout_marginEnd="151dp"
+        android:layout_marginBottom="254dp"
+        android:onClick="Send"
         android:text="Abschicken"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,5 +63,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtMatNum" />
+
+    <Button
+        android:id="@+id/btnCalculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="47dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="159dp"
+        android:onClick="calculate"
+        android:text="Berechnen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSend" />
 
 </android.support.constraint.ConstraintLayout>
