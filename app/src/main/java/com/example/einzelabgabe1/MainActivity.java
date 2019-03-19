@@ -20,77 +20,61 @@ public class MainActivity extends AppCompatActivity {
     public void Send(View view) {
 
         String Input = edtxtMatNum.getText().toString();
-
         //TcpServer instanzieren mit der Matrikelnummer
-        TCPServer Tcpserver = new TCPServer (Input) ;
+        TCPServer Tcpserver = new TCPServer(Input);
         //Thread erstellen und starten
         Thread serverSend = new Thread(Tcpserver);
         serverSend.start();
 
-        //
+
         try {
             serverSend.join();
-            if (Tcpserver.fromServer!=null){
+            if (Tcpserver.fromServer != null) {
                 txtServerAnswer.setText(Tcpserver.fromServer);
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
 
-
-
     }
 
-    public void calculate(View view){
-        int quersumme=0;
+    public void calculate(View view) {
+        int quersumme = 0;
         ArrayList<Integer> binär = new ArrayList<Integer>();
-        char [] arr = (edtxtMatNum.getText().toString()).toCharArray();
+        char[] arr = (edtxtMatNum.getText().toString()).toCharArray();
 
-
-        for (int i = 0; i <arr.length ; i++) {
-            quersumme +=arr[i]-48;
+        for (int i = 0; i < arr.length; i++) {
+            quersumme += arr[i] - 48;
         }
-
-
-        int counter=0;
-        while (quersumme>0){
-            binär.add(quersumme%2);
-            quersumme/=2;
+        int counter = 0;
+        while (quersumme > 0) {
+            binär.add(quersumme % 2);
+            quersumme /= 2;
         }
+        String sbinär = "";
 
-        String sbinär ="";
-
-
-
-        for (Integer s:binär) {
-            sbinär+=s;
+        for (Integer s : binär) {
+            sbinär += s;
         }
-        String sbinärreverse="";
+        String sbinärreverse = "";
 
-        char [] sbinär1 = sbinär.toCharArray();
+        char[] sbinär1 = sbinär.toCharArray();
 
-        for (int i = 0; i <sbinär1.length; i++) {
-            sbinärreverse += sbinär1[sbinär1.length-i-1];
+        for (int i = 0; i < sbinär1.length; i++) {
+            sbinärreverse += sbinär1[sbinär1.length - i - 1];
         }
-
-
-        edtxtMatNum.setText(sbinärreverse,TextView.BufferType.EDITABLE);
-
-
-
-
+        edtxtMatNum.setText(sbinärreverse, TextView.BufferType.EDITABLE);
 
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-         txtMatNum = findViewById(R.id.txtMatNum);
-         txtServerAnswer = findViewById(R.id.txtServerAnswer);
-         edtxtMatNum = findViewById(R.id.edtxtMatNum);
-         btnSend = findViewById(R.id.btnSend);
+        txtMatNum = findViewById(R.id.txtMatNum);
+        txtServerAnswer = findViewById(R.id.txtServerAnswer);
+        edtxtMatNum = findViewById(R.id.edtxtMatNum);
+        btnSend = findViewById(R.id.btnSend);
     }
 }
